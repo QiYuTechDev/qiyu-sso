@@ -1,9 +1,6 @@
-from typing import Optional
+from urllib.parse import urlencode
 
-from oauthlib.oauth2.rfc6749.clients import WebApplicationClient
-
-from forms.client_base import ClientBaseForm
-from forms.login import LoginArgs
+from forms import LoginArgs, TokenArgs
 
 __all__ = ["BaseAPI"]
 
@@ -13,35 +10,34 @@ class BaseAPI(object):
     基础 API 定义
     """
 
-    def __init__(self, uri: str, client_id: str, client_secret: str):
+    @staticmethod
+    def get_token_url(args: TokenArgs) -> (str, dict):
         """
-        :param uri: OAuth 服务的接口
-        :param client_id:     应用 ID (允许对外公开)
-        :param client_secret: 应用机密 (必须保密)
-        """
-        self._uri = uri
-        self._client_id = client_id
-        self._client_secret = client_secret
+        返回 获取 token 的请求网址
 
-    def get_login_url(self, args: LoginArgs) -> str:
+        :param args:
+        :return: (request url, request body)
+                 request method must be POST
+                 form use standard form
+        """
+        query = args.dict()
+        uri = query.pop("server_uri")
+        return uri, query
+
+    @staticmethod
+    def get_login_url(args: LoginArgs) -> str:
         """
         获取登录的地址
+
+        注意:
+
+            这个接口使用的是 Authorization Code(授权码) 授权模式
+
+        因为授权码模式是最安全并且最常用的,因为仅支持这个模式
 
         :param args:
         :return:
         """
-        client = self._get_oauth_client(args)
-        return client.prepare_request_uri(
-            uri=args.server_uri,
-            scope=args.scope,
-            state=args.state,
-            redirect_uri=args.redirect_uri,
-        )
-
-    @staticmethod
-    def _get_oauth_client(
-        form: ClientBaseForm, code: Optional[str] = None
-    ) -> WebApplicationClient:
-        return WebApplicationClient(
-            client_id=form.client_id, code=code, client_secret=form.client_secret
-        )
+        query: dict = args.dict()
+        uri = query.pop("server_uri")
+        return uri + "?" + urlencode(query)

@@ -1,4 +1,6 @@
 .idea
+demo.json
+user_info.json
 poetry.lock
 # Byte-compiled / optimized / DLL files
 __pycache__/
