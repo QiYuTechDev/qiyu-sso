@@ -8,7 +8,11 @@ class TokenArgs(BaseModel):
     获取 Token 的参数
     """
 
-    server_uri: str = Field(..., title="获取 OAuth2 Token 的地址")
+    server_uri: str = Field(
+        "https://user.qiytech.tech/oauth/token/",
+        title="OAuth2 Token地址",
+        description="使用您自己服务器的地址",
+    )
     redirect_uri: str = Field(
         ..., title="跳转 URI", description="授权之后会跳转到这个 URL 并且附带 code & state 参数"
     )

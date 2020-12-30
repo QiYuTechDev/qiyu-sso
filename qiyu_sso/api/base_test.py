@@ -13,13 +13,11 @@ def test_get_login_url():
     :return:
     """
     client_id = secrets.token_hex(20)
-    server_uri = "https://www.google.com/oauth"
     redirect_uri = "https://www.facebook.com/demo"
     state = secrets.token_hex(24)
     scope = "read"
 
     args = LoginArgs(
-        server_uri=server_uri,
         client_id=client_id,
         redirect_uri=redirect_uri,
         state=state,
@@ -28,11 +26,12 @@ def test_get_login_url():
 
     base = BaseAPI()
     url = base.get_login_url(args)
+    print(url)
     d = urlparse(url)
 
     assert d.scheme == "https"
-    assert d.netloc == "www.google.com"
-    assert d.path == "/oauth"
+    assert d.netloc == "user.qiyutech.tech"
+    assert d.path == "/oauth/authorize/"
     q = parse_qs(d.query)
 
     assert q["response_type"] == ["code"]

@@ -8,7 +8,9 @@ class LoginArgs(BaseModel):
     获取登录地址的参数
     """
 
-    server_uri: str = Field(..., title="OAuth2授权地址")
+    server_uri: str = Field(
+        "https://user.qiyutech.tech/oauth/authorize/", title="OAuth2授权地址"
+    )
     client_id: str = Field(..., title="客户ID")
 
     redirect_uri: str = Field(
