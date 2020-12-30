@@ -3,9 +3,9 @@ from typing import Optional
 
 from aiohttp import client
 
-from forms import TokenArgs, UserInfoArgs
-from resp import TokenResponse, UserInfoResponse
 from .base import BaseAPI
+from ..forms import TokenArgs, UserInfoArgs
+from ..resp import TokenResponse, UserInfoResponse
 
 __all__ = ["QiYuSSOAsync"]
 

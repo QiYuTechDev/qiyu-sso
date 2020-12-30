@@ -1,6 +1,6 @@
-from forms import TokenArgs, UserInfoArgs
 from .sync_api import QiYuSSOSync
 from .test_helper import load_test_from_file
+from ..forms import TokenArgs, UserInfoArgs
 
 __all__ = []
 

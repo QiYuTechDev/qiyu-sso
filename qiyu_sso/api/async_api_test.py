@@ -1,8 +1,8 @@
 import pytest
 
-from forms import TokenArgs, UserInfoArgs
 from .async_api import QiYuSSOAsync
 from .test_helper import load_test_from_file
+from ..forms import TokenArgs, UserInfoArgs
 
 __all__ = []
 

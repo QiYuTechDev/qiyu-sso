@@ -1,6 +1,6 @@
 from urllib.parse import urlencode
 
-from forms import LoginArgs, TokenArgs
+from ..forms import LoginArgs, TokenArgs
 
 __all__ = ["BaseAPI"]
 

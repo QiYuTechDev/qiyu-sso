@@ -3,9 +3,9 @@ from typing import Optional
 
 import requests
 
-from forms import TokenArgs, UserInfoArgs
-from resp import TokenResponse, UserInfoResponse
 from .base import BaseAPI
+from ..forms import TokenArgs, UserInfoArgs
+from ..resp import TokenResponse, UserInfoResponse
 
 __all__ = ["QiYuSSOSync"]
 

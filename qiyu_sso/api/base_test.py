@@ -1,8 +1,8 @@
 import secrets
 from urllib.parse import urlparse, parse_qs
 
-from forms.login import LoginArgs
 from .base import BaseAPI
+from ..forms.login import LoginArgs
 
 __all__ = []
 
