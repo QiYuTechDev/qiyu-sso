@@ -1,5 +1,7 @@
 from pydantic import BaseModel, Field
 
+from ..values import USER_CENTER_DOMAIN
+
 __all__ = ["UserInfoArgs"]
 
 
@@ -9,7 +11,7 @@ class UserInfoArgs(BaseModel):
     """
 
     server_uri: str = Field(
-        "https://user.qiyutech.tech/api/user/info/",
+        f"{USER_CENTER_DOMAIN}/api/user/info/",
         title="服务器地址",
         description="请求要访问的地址",
     )

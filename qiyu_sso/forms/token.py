@@ -1,5 +1,7 @@
 from pydantic import Field, BaseModel
 
+from ..values import USER_CENTER_DOMAIN
+
 __all__ = ["TokenArgs"]
 
 
@@ -9,7 +11,7 @@ class TokenArgs(BaseModel):
     """
 
     server_uri: str = Field(
-        "https://user.qiytech.tech/oauth/token/",
+        f"{USER_CENTER_DOMAIN}/oauth/token/",
         title="OAuth2 Token地址",
         description="使用您自己服务器的地址",
     )

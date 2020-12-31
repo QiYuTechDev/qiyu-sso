@@ -1,5 +1,7 @@
 from pydantic import Field, BaseModel
 
+from ..values import USER_CENTER_DOMAIN
+
 __all__ = ["LoginArgs"]
 
 
@@ -9,7 +11,7 @@ class LoginArgs(BaseModel):
     """
 
     server_uri: str = Field(
-        "https://user.qiyutech.tech/oauth/authorize/", title="OAuth2授权地址"
+        f"{USER_CENTER_DOMAIN}/oauth/authorize/", title="OAuth2授权地址"
     )
     client_id: str = Field(..., title="客户ID")
 
