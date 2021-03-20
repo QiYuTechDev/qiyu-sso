@@ -1,19 +1,9 @@
 [tool.poetry]
 name = "qiyu_sso"
-version = "0.2.5"
+version = "0.2.6"
 description = "SSO client from QiYuTech"
 authors = ["dev <dev@qiyutech.tech>"]
 readme = "README.md"
-
-[[tool.poetry.source]]
-name = "aliyun"
-url = "https://mirrors.aliyun.com/pypi/simple"
-default = true
-
-[[tool.poetry.source]]
-name = "official_pypi"
-url = "https://pypi.org/simple"
-secondary = true
 
 [tool.poetry.dependencies]
 python = "^3.9"
