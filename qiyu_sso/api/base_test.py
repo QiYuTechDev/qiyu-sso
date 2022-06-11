@@ -22,6 +22,7 @@ def test_get_login_url():
         redirect_uri=redirect_uri,
         state=state,
         scope=scope,
+        code_challenge="",
     )
 
     base = BaseAPI()
