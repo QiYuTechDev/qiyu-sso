@@ -1,4 +1,6 @@
 import secrets
+import base64
+import hashlib
 import random
 
 from pydantic import Field, BaseModel
@@ -13,7 +15,10 @@ def gen_code_challenge() -> str:
     自动生成挑战码
     https://django-oauth-toolkit.readthedocs.io/en/latest/getting_started.html?#authorization-code
     """
-    return secrets.token_urlsafe(random.randint(43, 128))
+    code_challenge = secrets.token_urlsafe(random.randint(43, 128))
+    code_verifier = base64.urlsafe_b64encode(code_challenge.encode())
+    code_challenge = hashlib.sha256(code_verifier).digest()
+    return base64.urlsafe_b64encode(code_challenge).decode("utf-8").replace("=", "")
 
 
 class LoginArgs(BaseModel):
