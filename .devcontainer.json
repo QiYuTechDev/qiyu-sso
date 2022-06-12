@@ -4,5 +4,10 @@
   "postCreateCommand": [
     "pip install poetry",
     "poetry update"
+  ],
+  "extensions": [
+    "ms-python.python",
+    "ms-vscode.vscode-typescript-next",
+    "eamodio.gitlens"
   ]
 }
