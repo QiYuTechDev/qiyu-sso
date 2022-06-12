@@ -1,10 +1,6 @@
 {
   "name": "qiyu-sso",
   "image": "python:3.9",
-  "postStartCommand": [
-    "pip install poetry",
-    "poetry update"
-  ],
   "extensions": [
     "ms-python.python",
     "ms-vscode.vscode-typescript-next",
