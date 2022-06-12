@@ -1,7 +1,7 @@
 {
   "name": "qiyu-sso",
   "image": "python:3.9",
-  "postCreateCommand": [
+  "postStartCommand": [
     "pip install poetry",
     "poetry update"
   ],
