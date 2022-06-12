@@ -8,6 +8,7 @@
   "extensions": [
     "ms-python.python",
     "ms-vscode.vscode-typescript-next",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "batisteo.vscode-django"
   ]
 }
