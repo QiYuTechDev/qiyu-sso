@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import Field, BaseModel
 
 from ..values import USER_CENTER_DOMAIN
@@ -25,3 +27,5 @@ class TokenArgs(BaseModel):
     grant_type: str = Field(
         "authorization_code", title="授权类型", description="固定值[当前仅仅支持授权码]"
     )
+
+    code_verifier: Optional[str] = Field(None, title="验证令牌", description="验证用户请求的令牌")

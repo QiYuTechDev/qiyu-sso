@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "qiyu_sso"
-version = "0.2.11"
+version = "0.2.12"
 description = "SSO client from QiYuTech"
 authors = ["dev <dev@qiyutech.tech>"]
 readme = "README.md"
