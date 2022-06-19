@@ -16,7 +16,7 @@ class QiYuSSOSync(BaseAPI):
         """
         使用 访问令牌 获取用户信息
         """
-        r = requests.post(url=args.server_uri, json={"access_token": args.access_token})
+        r = requests.post(url=args.server_uri, json=args.dict(exclude={"server_uri"}))
         if not r.ok:
             logging.error(f"get user info failed: {r}")
             return None
