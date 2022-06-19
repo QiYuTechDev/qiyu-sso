@@ -31,7 +31,7 @@ class QiYuSSOSync(BaseAPI):
         url, data = self.get_token_url(args)
         r = requests.post(url=url, data=data)
         if not r.ok:
-            logging.error(f"get token failed: {r}")
+            logging.error(f"get token failed: {r.status_code} {r.headers} {r.text}")
             return None
         ret = r.json()
         return TokenResponse(**ret)
